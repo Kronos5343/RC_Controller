@@ -24,15 +24,17 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 ## Time Log
 
-|Date      |Start Time|Category|Description                                 |Total Minutes|
-|----------|----------|:------:|--------------------------------------------|:-----------:|
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-
+| Date       | Start Time         | Category | Description                                                                                                    | Total Minutes |
+|------------|--------------------|:--------:|----------------------------------------------------------------------------------------------------------------|:-------------:|
+| 10/6/2025  | 2 PM - 3 PM        |    TP    | We were able to get the github progress bar and tasks set up to help us be more organized.                     |      1hr      |
+| 10/9/2025  | 12:00 PM - 4:05 PM |    IM    | I was able to read up on the BT libraries and picked one to implement and then I added it to the dependencies. |   3hrs 5min   |
+| 10/10/2025 | 12:13 PM - 1:38 PM |    TP    | I was able to add in the function that places a marker on the map and takes you to it.                         |   1hr 25min   |
+| 10/10/2025 | 2 PM - 3 PM        |    TP    |                                                                                                                |      1hr      |
+|            |                    |          |                                                                                                                |               |
+|            |                    |          |                                                                                                                |               |
+|            |                    |          |                                                                                                                |               |
+|            |                    |          |                                                                                                                |               |
+|            |                    |          |                                                                                                                |               |
 _Note: Add more rows as needed._
 
 ## Sprint Totals
