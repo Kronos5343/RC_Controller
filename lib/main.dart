@@ -80,7 +80,7 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Joystick(
-                  mode: JoystickMode.vertical,
+                  mode: JoystickMode.all,
                   listener: (details) {
                     setState(() {
                       xval2 = details.x;
