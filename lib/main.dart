@@ -60,7 +60,7 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
 
   void startScan() {
     setState(() => isScanning = true);
-    FlutterBluePlus.startScan(timeout: const Duration(seconds: 10));
+    FlutterBluePlus.startScan(timeout: const Duration(seconds: 3));
 
     FlutterBluePlus.scanResults.listen((results) {
       setState(() {
