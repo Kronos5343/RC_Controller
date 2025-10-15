@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(const MainScreen());
@@ -36,6 +38,51 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
   double yval1 = 0;
   double xval2 = 0;
   double yval2 = 0;
+
+  List<ScanResult> ScanResults = [];
+  BluetoothDevice? connectedDevice;
+  bool isScanning = false;
+
+  @override
+  void initState(){
+    super.initState();
+    _initBluetooth();
+  }
+
+  Future<void> _initBluetooth() async {
+    await Permission.bluetooth.request();
+    await Permission.bluetoothScan.request();
+    await Permission.bluetoothConnect.request();
+    await Permission.location.request();
+
+    startScan();
+  }
+
+  void startScan() {
+    setState(() => isScanning = true);
+    FlutterBluePlus.startScan(timeout: const Duration(seconds: 10));
+
+    FlutterBluePlus.scanResults.listen((results) {
+      setState(() {
+        ScanResults = results;
+      });
+    });
+    FlutterBluePlus.isScanning.listen((scanning){
+      setState(() => isScanning = scanning);
+    });
+  }
+
+  Future<void> ConnectToDevice(BluetoothDevice device) async {
+    await FlutterBluePlus.stopScan();
+    await device.connect();
+    setState(() => connectedDevice = device);
+  }
+
+  Future<void> disconnect() async {
+    await connectedDevice?.disconnect();
+    setState(() => connectedDevice = null);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,6 +91,12 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
           title: Text('Controller'),
           centerTitle: true,
           backgroundColor: Colors.teal,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.refresh),
+              onPressed: startScan,
+            )
+          ],
         ),
         drawer: SafeArea(
           child: Drawer(
@@ -80,7 +133,7 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Joystick(
-                  mode: JoystickMode.all,
+                  mode: JoystickMode.vertical,
                   listener: (details) {
                     setState(() {
                       xval2 = details.x;
