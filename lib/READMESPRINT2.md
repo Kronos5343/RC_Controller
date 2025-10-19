@@ -29,14 +29,10 @@ To recreate the development environment, you need the following software and/or 
 
 I found these websites useful in developing this software:
 
-* [Website Title](Link)
-*
-*
+* I used chatgpt to give me a list of all the commands in the bluetooth library
 
 ## Future Work
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] First thing here
-* [ ]
-* [ ]
+* I need to make a way that the bluetooth devices when searching can be filtered.
