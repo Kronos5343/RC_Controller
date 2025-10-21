@@ -59,13 +59,21 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
   }
 
   void startScan() {
-    setState(() => isScanning = true);
+    setState(() {
+      isScanning = true;
+      ScanResults.clear();
+    });
     FlutterBluePlus.startScan(timeout: const Duration(seconds: 3));
 
     FlutterBluePlus.scanResults.listen((results) {
-      setState(() {
-        ScanResults = results;
-      });
+      for (var r in results) {
+        // Only add devices that have names and aren’t duplicates
+        if (r.device == true) {
+          setState(() {
+            ScanResults.add(r);
+          });
+        }
+      }
     });
     FlutterBluePlus.isScanning.listen((scanning){
       setState(() => isScanning = scanning);
@@ -102,10 +110,22 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
           child: Drawer(
             child: Column(
               children: [
-                DrawerHeader(child: Text("Available devices"))
-              ],
-            ),
-          ),
+                const DrawerHeader(
+                  child: Text("Available Devices"),
+                ),
+                Expanded(
+                  child: ListView(
+                    // children: ScanResults.map<Widget>((var item) => ListTile(title: (item))).toList(),
+                  )
+                ),
+                Expanded(
+                    child: IconButton(
+                      icon: const Icon(Icons.refresh),
+                      onPressed: startScan,
+                    ))
+              ]
+            )
+          )
         ),
         body: Stack(
           children: [
