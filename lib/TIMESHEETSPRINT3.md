@@ -24,14 +24,14 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 ## Time Log
 
-|Date      |Start Time|Category|Description                                 |Total Minutes|
-|----------|----------|:------:|--------------------------------------------|:-----------:|
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
+| Date       | Start Time | Category | Description                                                             | Total Minutes |
+|------------|------------|:--------:|-------------------------------------------------------------------------|:-------------:|
+| 10/20/2025 | 2 pm - 3 pm |    TP    | This was in class work time and we got phaser downloaded and researched |      1hr      |
+| 10/22/2025 | 2 pm -  pm |    TP    |                                                                         |               |
+|            |            |          |                                                                         |               |
+|            |            |          |                                                                         |               |
+|            |            |          |                                                                         |               |
+|            |            |          |                                                                         |               |
 
 _Note: Add more rows as needed._
 
