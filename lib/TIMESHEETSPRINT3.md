@@ -28,7 +28,7 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |------------|----------------|:--------:|---------------------------------------------------------------------------------|:-------------:|
 | 10/20/2025 | 2 pm - 3 pm    |   MTG    | This was in class work time and we got phaser downloaded and researched         |      1hr      |
 | 10/22/2025 | 2 pm - 4:06 pm |  MTG/TP  | This time was spent working on getting a phaser sample program to start us off. |   2hrs 6min   |
-|            |                |          |                                                                                 |               |
+|     10/27/2025        |   2 pm -             |          |                                                                                 |               |
 |            |                |          |                                                                                 |               |
 |            |                |          |                                                                                 |               |
 |            |                |          |                                                                                 |               |
