@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
@@ -38,8 +40,10 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
   double yval1 = 0;
   double xval2 = 0;
   double yval2 = 0;
-
+//if (device.name.isNotEmpty && device.name != null)
+  // final Map<ble.DeviceIdentifier, ble.ScanResult> ScanResults = {};
   List<ScanResult> ScanResults = [];
+  Map<String ,ScanResult> FilteredScanResults = {};
   BluetoothDevice? connectedDevice;
   bool isScanning = false;
 
@@ -57,20 +61,20 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
 
     startScan();
   }
-
   void startScan() {
     setState(() {
       isScanning = true;
       ScanResults.clear();
+      FilteredScanResults.clear();
     });
-    FlutterBluePlus.startScan(timeout: const Duration(seconds: 3));
+    FlutterBluePlus.startScan(timeout: const Duration(seconds: 10));
 
     FlutterBluePlus.scanResults.listen((results) {
-      for (var r in results) {
+      for (var foundDevice in results) {
         // Only add devices that have names and aren’t duplicates
-        if (r.device == true) {
+        if (foundDevice.device.advName.isNotEmpty) {
           setState(() {
-            ScanResults.add(r);
+            FilteredScanResults[foundDevice.device.advName] = foundDevice;
           });
         }
       }
@@ -82,7 +86,7 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
 
   Future<void> ConnectToDevice(BluetoothDevice device) async {
     await FlutterBluePlus.stopScan();
-    await device.connect();
+    await device.connect(license: License.free);
     setState(() => connectedDevice = device);
   }
 
@@ -113,16 +117,23 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
                 const DrawerHeader(
                   child: Text("Available Devices"),
                 ),
+                    IconButton(
+                      icon: const Icon(Icons.refresh),
+                      onPressed: (){startScan();},
+                    ),
+                isScanning
+                    ? CircularProgressIndicator():
                 Expanded(
                   child: ListView(
-                    // children: ScanResults.map<Widget>((var item) => ListTile(title: (item))).toList(),
+                    children: FilteredScanResults.values.map<Widget>((var item) =>
+                        ListTile(
+                        onTap:(){debugPrint("${item.device.advName}");},
+                            title: Text(item.advertisementData.advName))).toList(),
+
+
                   )
                 ),
-                Expanded(
-                    child: IconButton(
-                      icon: const Icon(Icons.refresh),
-                      onPressed: startScan,
-                    ))
+
               ]
             )
           )
