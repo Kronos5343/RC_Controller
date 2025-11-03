@@ -24,27 +24,27 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 ## Time Log
 
-| Date       | Start Time     | Category | Description                                                                     | Total Minutes |
-|------------|----------------|:--------:|---------------------------------------------------------------------------------|:-------------:|
-| 10/20/2025 | 2 pm - 3 pm    |   MTG    | This was in class work time and we got phaser downloaded and researched         |      1hr      |
-| 10/22/2025 | 2 pm - 4:06 pm |  MTG/TP  | This time was spent working on getting a phaser sample program to start us off. |   2hrs 6min   |
-| 10/27/2025 | 2 pm - 4:23 pm |  MTG/TP  | This time was spent getting the base project started and figuring the code.     |   2hrs 23min  |
-|            |                |          |                                                                                 |               |
-|            |                |          |                                                                                 |               |
-|            |                |          |                                                                                 |               |
-|            |                |          |                                                                                 |               |
-|            |                |          |                                                                                 |               |
-|            |                |          |                                                                                 |               |
-|            |                |          |                                                                                 |               |
-|            |                |          |                                                                                 |               |
+| Date       | Start Time         | Category | Description                                                                     | Total Minutes |
+|------------|--------------------|:--------:|---------------------------------------------------------------------------------|:-------------:|
+| 10/20/2025 | 2 pm - 3 pm        |   MTG    | This was in class work time and we got phaser downloaded and researched         |      1hr      |
+| 10/22/2025 | 2 pm - 4:06 pm     |  MTG/TP  | This time was spent working on getting a phaser sample program to start us off. |   2hrs 6min   |
+| 10/26/2025 | 2 pm - 4:23 pm     |  MTG/TP  | This time was spent getting the base project started and figuring the code.     |  2hrs 23min   |
+| 10/27/2025 | 12:51 pm - 2:43 pm |    IM    | In this I was able to get the Bluetooth working and filtering results.          |   1hr 52min   |
+| 10/27/2025 | 3:11 pm - 7:13 pm  |    IM    | In this I was able to get the Permissions check on the location services.       |   4hrs 2min   |
+|            |                    |          |                                                                                 |               |
+|            |                    |          |                                                                                 |               |
+|            |                    |          |                                                                                 |               |
+|            |                    |          |                                                                                 |               |
+|            |                    |          |                                                                                 |               |
+|            |                    |          |                                                                                 |               |
 
 _Note: Add more rows as needed._
 
 ## Sprint Totals
 
-|Categroy                       |Total Time (Hours:Minutes)|
-|-------------------------------|:------------------------:|
-|IM - Individual Module         |                          |
-|TP - Team Project              |                          |
-|MTG - Class Meetings           |                          |
-|**TOTAL**                      |                          |
+|Categroy                       | Total Time (Hours:Minutes) |
+|-------------------------------|:--------------------------:|
+|IM - Individual Module         |         5hrs 54min         |
+|TP - Team Project              |         2hrs 29min         |
+|MTG - Class Meetings           |            3hrs            |
+|**TOTAL**                      |        11hrs 23min         |

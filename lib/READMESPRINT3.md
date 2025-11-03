@@ -1,27 +1,27 @@
 # Project Title (Update)
 
-Add a description of your project here.
+In this project I want to get GIS Mapping onto my controller app, and finish up my bluetooth.
 
 
 ## Instructions for Build and Use
 
 Steps to build and/or run the software:
 
-1. First step here
-2.
-3.
+1. Create permission services for location
+2. Get map to display location on.
+3. Add map to background.
 
 Instructions for using the software:
 
-1. First step here
-2.
+1. Turn on app and accept permissions for location services.
+2. Background of App should display location on map.
 3.
 
 ## Development Environment
 
 To recreate the development environment, you need the following software and/or libraries with the specified versions:
 
-* First thing here
+* google_maps_flutter
 *
 *
 
@@ -29,7 +29,7 @@ To recreate the development environment, you need the following software and/or 
 
 I found these websites useful in developing this software:
 
-* [Website Title](Link)
+* [Youtube Video](https://www.youtube.com/watch?v=s3WjmfcyDLA)
 *
 *
 
@@ -37,6 +37,4 @@ I found these websites useful in developing this software:
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] First thing here
-* [ ]
-* [ ]
+* [ ] I still I need to get the cars bluetooth going so that I can attempt to control it with the controller.
