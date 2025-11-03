@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
   runApp(const MainScreen());
