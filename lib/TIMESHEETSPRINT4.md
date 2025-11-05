@@ -24,14 +24,14 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 ## Time Log
 
-|Date      |Start Time|Category|Description                                 |Total Minutes|
-|----------|----------|:------:|--------------------------------------------|:-----------:|
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
+| Date      | Start Time        | Category | Description                                                          | Total Minutes |
+|-----------|-------------------|:--------:|----------------------------------------------------------------------|:-------------:|
+| 11/5/2025 | 2:00 pm - 3:20 pm |    TP    | In this session I was able to set up the file structure all the way. |   1hr 20min   |
+|           |                   |          |                                                                      |               |
+|           |                   |          |                                                                      |               |
+|           |                   |          |                                                                      |               |
+|           |                   |          |                                                                      |               |
+|           |                   |          |                                                                      |               |
 
 _Note: Add more rows as needed._
 
