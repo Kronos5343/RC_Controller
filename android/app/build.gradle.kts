@@ -24,10 +24,20 @@ android {
         applicationId = "com.example.remotecontroller"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
+
+        // minSdk = flutter.minSdkVersion
         minSdk = flutter.minSdkVersion
+
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+
+        // versionCode = flutter.versionCode
+        versionCode = 1
+
+        versionName = "1.0"
+
+//        versionCode = flutterVersionCode.toInteger()
+//
+//        versionName = flutter.versionName
     }
 
     buildTypes {
