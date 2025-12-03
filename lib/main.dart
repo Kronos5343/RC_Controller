@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'dart:math';
+import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
@@ -38,6 +40,7 @@ class ControllerAndCamera extends StatefulWidget {
 }
 
 class _ControllerAndCameraState extends State<ControllerAndCamera> {
+  BluetoothCharacteristic? txCharacteristic;
   double xval1 = 0;
   double yval1 = 0;
   double xval2 = 0;
@@ -58,6 +61,39 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
     super.initState();
     _initBluetooth();
     _initLocationTracking();
+
+    Timer.periodic(const Duration(milliseconds: 50), (_) {
+      if (txCharacteristic == null) return;
+
+      // Convert steering to PWM (linear)
+      double steerPwm = (1500 + (xval1 * 500)).clamp(1000, 2000);
+
+      // Convert throttle using exponential curve
+      double escPwm = expEsc(-yval2);  // negative because forward is down
+
+      String packet = "${steerPwm.toInt()},${escPwm.toInt()}\n";
+
+      txCharacteristic!.write(
+        utf8.encode(packet),
+        withoutResponse: true,
+      );
+    });
+
+  }
+
+  double expEsc(double x) {
+    const k = 3.0;
+
+    if (x.abs() < 0.02) return 1500;
+
+    double t = x.abs();
+    double f = (exp(k * t) - 1) / (exp(k) - 1);
+
+    double pwm = x > 0
+        ? 1500 + (f * 500)
+        : 1500 - (f * 500);
+
+    return pwm.clamp(1000, 2000);
   }
 
   Future<void> _initLocationTracking() async {
@@ -179,8 +215,24 @@ class _ControllerAndCameraState extends State<ControllerAndCamera> {
                   child: ListView(
                     children: FilteredScanResults.values
                         .map<Widget>((item) => ListTile(
-                      onTap: () {
-                        debugPrint("${item.device.advName}");
+                      onTap: () async {
+                        await FlutterBluePlus.stopScan();
+                        await item.device.connect(license: License.free);
+                        setState(() => connectedDevice = item.device);
+
+                        // Discover services + set up write characteristic
+                        var services = await item.device.discoverServices();
+                        for (var s in services) {
+                          for (var c in s.characteristics) {
+                            if (c.properties.write) {
+                              txCharacteristic = c;
+                            }
+                          }
+                        }
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Connected to ${item.device.advName}")),
+                        );
                       },
                       title: Text(item.advertisementData.advName),
                     ))
